@@ -1,0 +1,10 @@
+<library path="frame_panel">
+  <class
+    name="frame_panel/FramePanel"
+    type="my_frame_panel::FramePanel"
+    base_class_type="rviz_common::Panel">
+    <description>
+      Panel to create named TF frames.
+    </description>
+  </class>
+</library>
