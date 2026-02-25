@@ -1,0 +1,24 @@
+# ROS2 build and install directories
+/build/
+/install/
+/log/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Editor/IDE specific files
+.vscode/
+*.swp
+*.swo
+*.idea/
+*.iml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Colcon metadata
+.colcon/
