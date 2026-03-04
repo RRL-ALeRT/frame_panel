@@ -34,6 +34,7 @@ private:
 
   QComboBox* frame_combo_;
   QLineEdit* name_edit_;
+  QLineEdit* reference_orientation_name;
   QPushButton* add_button_;
   QPushButton* remove_button_;
   QPushButton* rename_button_;

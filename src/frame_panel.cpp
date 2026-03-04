@@ -32,6 +32,10 @@ FramePanel::FramePanel(QWidget* parent)
   name_edit_->setPlaceholderText("Enter frame name...");
   main_layout->addWidget(name_edit_);
 
+  reference_orientation_name = new QLineEdit;
+  reference_orientation_name->setPlaceholderText("Enter parent frame name...");
+  main_layout->addWidget(reference_orientation_name);
+
   QHBoxLayout* button_layout = new QHBoxLayout;
   add_button_ = new QPushButton("Add");
   remove_button_ = new QPushButton("Remove");
@@ -63,11 +67,18 @@ FramePanel::FramePanel(QWidget* parent)
 void FramePanel::onAddClicked()
 {
   QString text = name_edit_->text();
+  QString parent = reference_orientation_name->text();
   if (!text.isEmpty()) {
     std_msgs::msg::String msg;
-    msg.data = text.toStdString();
+    // Send name|reference_orientation_frame (reference is optional)
+    if (!parent.isEmpty()) {
+      msg.data = text.toStdString() + "|" + parent.toStdString();
+    } else {
+      msg.data = text.toStdString();
+    }
     pub_create_->publish(msg);
-    name_edit_->clear(); // Clear the box after adding
+    name_edit_->clear();
+    reference_orientation_name->clear();
   }
 }
 
